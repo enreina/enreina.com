@@ -1,86 +1,141 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+
+const menuItems = [
+  ["Home", "#"],
+  ["Projects", "#"],
+  ["Blog", "#"],
+  ["Piano Covers", "#"],
+];
+const DarkModeToggle = () => {
+  return (
+    <button className="p-1 bg-purple-700 rounded-md">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="white"
+        className="w-6 h-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+        />
+      </svg>
+    </button>
+  );
+};
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex w-full min-h-screen flex-col items-center justify-center">
       <Head>
-        <title>Create Next App</title>
+        <title>Enreina</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <header className="flex flex-row justify-center w-full bg-sky-100/70 backdrop-blur-sm sticky top-0 border-b">
+        <nav className="w-full max-w-2xl p-4 flex flex-row justify-between space-x-3">
+          <div>
+            <a className="text-xl font-bold text-gray-900" href="#">
+              Enreina
+            </a>
+          </div>
+          <div className="grow flex flex-row space-x-3">
+            {menuItems.map(([name, link]) => (
+              <a
+                key={name}
+                className="text-lg text-gray-800 hover:font-semibold"
+                href={link}
+              >
+                {name}
+              </a>
+            ))}
+          </div>
+          <DarkModeToggle />
+        </nav>
+      </header>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
+      <main className="flex w-full max-w-2xl px-4 py-8 flex-1 flex-col text-xl space-y-8 leading-8">
+        <h1 className="text-5xl font-bold">Hey There! 👋</h1>
+        <p>My name is Enreina.</p>
+        <p>
+          I am a<strong> language learner</strong> interested in East Asian
+          languages – currently{" "}
+          <a
+            className="text-blue-500 hover:text-blue-600 underline"
+            href="https://enreina.com/tag/learning-japanese/"
+          >
+            studying Japanese
+          </a>
+          .
         </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+        <p>
+          I am an <strong>aspiring piano arranger</strong>. I make{" "}
           <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            className="text-blue-500 hover:text-blue-600 underline"
+            href="https://www.youtube.com/channel/UCIJtHGMH_M_uBbSCy3euYcg"
           >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
+            piano covers and arrangement videos
           </a>
-
+          . I also transcribe my arrangements as{" "}
           <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            className="text-blue-500 hover:text-blue-600 underline"
+            href="https://musescore.com/user/53154402"
           >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
+            sheet music
           </a>
-
+          .
+        </p>
+        <p>
+          I had been <strong>a software engineer</strong> for quite some years
+          but had taken a{" "}
           <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            className="text-blue-500 hover:text-blue-600 underline"
+            href="https://enreina.com/blog/blog-reboot-what-am-i-if-i-am-not-a-software-engineer/"
           >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
+            professional break
+          </a>{" "}
+          from coding for some time now. Just recently, I've been{" "}
           <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            className="text-blue-500 hover:text-blue-600 underline"
+            href="https://github.com/enreina"
           >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            slowly getting back into coding
           </a>
-        </div>
+          . For more about my work experience as a software engineer, please
+          refer to my{" "}
+          <a
+            className="text-blue-500 hover:text-blue-600 underline"
+            href="https://docs.google.com/document/d/1ibvXccAYN7uayEQFxquL02dUy4cZIJy59DH8rdOs3_Y/edit?usp=sharing"
+          >
+            resume
+          </a>
+          .
+        </p>
+        <p>
+          I{" "}
+          <a
+            className="text-blue-500 hover:text-blue-600 underline"
+            href="https://enreina.com/blog/"
+          >
+            blog
+          </a>{" "}
+          occasionally on anything I feel worth writing whenever I feel like it.
+        </p>
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
+      <footer className="text-sm h-12 text-slate-400 font-light flex w-full items-center justify-center">
+        <p>
+          Enreina @ 2023. Built with <a href="https://nextjs.org/">Next.js</a>,{" "}
+          <a href="https://tailwindcss.com/">Tailwind CSS</a>, and{" "}
+          <a href="https://ghost.org/">Ghost</a>.
+        </p>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
